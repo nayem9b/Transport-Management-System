@@ -85,6 +85,24 @@ export default function Navbar() {
                   </div>
                 )}
 
+                {isAdmin && (
+                  <div
+                    className=" tooltip tooltip-bottom"
+                    data-tip={
+                      userHasRequisition.length > 0
+                        ? `you have ${userRequisitions} requisition approved for reason: ${userHasRequisition[0]?.reason}`
+                        : `0 requisitions approved `
+                    }
+                  >
+                    <button className="btn bg-neutral-focus text-white border-none ">
+                      <BellIcon className="h-6 w-6" aria-hidden="true" />
+                      <div className="badge badge-error ml-[-12px]">
+                        {userRequisitions}
+                      </div>
+                    </button>
+                  </div>
+                )}
+
                 <Menu as="div" className="relative ml-3">
                   <div className="flex">
                     {user?.email ? (
